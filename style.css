@@ -1,837 +1,1010 @@
 /* === الأنماط الأساسية === */
-        :root {
-            --dark-bg: #121212;
-            --blood-red: #8B0000;
-            --zombie-green: #4a5d23;
-            --ash-gray: #343434;
-            --survivor-yellow: #f0ad4e;
-            --dirty-white: #e0e0e0;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--dark-bg);
-            color: var(--dirty-white);
-            line-height: 1.6;
-            background-image: url('/api/placeholder/1200/700');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.75);
-            z-index: -1;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        a {
-            color: var(--survivor-yellow);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--blood-red);
-        }
-        
-        /* === رأس الصفحة === */
-        header {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
-            border-bottom: 3px solid var(--blood-red);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--dirty-white);
-            text-shadow: 0 0 10px var(--blood-red);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: var(--blood-red);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin: 0 15px;
-        }
-        
-        .nav-links a {
-            color: var(--dirty-white);
-            font-weight: bold;
-            font-size: 1.1rem;
-            position: relative;
-            padding: 5px 0;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--blood-red);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .burger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        .burger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--dirty-white);
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        /* === الجزء الرئيسي === */
-        .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to top, var(--dark-bg), transparent);
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px black;
-            color: var(--dirty-white);
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            text-shadow: 0 0 10px black;
-        }
-        
-        .cta-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--blood-red);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .cta-btn:hover {
-            background-color: var(--zombie-green);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* === أقسام المحتوى === */
-        section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--ash-gray);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            position: relative;
-            color: var(--survivor-yellow);
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background-color: var(--blood-red);
-            margin: 10px auto;
-        }
-        
-        /* === قسم الشخصيات === */
-        .characters {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .character-card {
-            background-color: var(--ash-gray);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .character-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .character-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        
-        .character-info {
-            padding: 20px;
-        }
-        
-        .character-info h3 {
-            margin-bottom: 10px;
-            color: var(--survivor-yellow);
-        }
-        
-        .character-status {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .alive {
-            background-color: var(--zombie-green);
-            color: white;
-        }
-        
-        .deceased {
-            background-color: var(--blood-red);
-            color: white;
-        }
-        
-        .unknown {
-            background-color: var(--ash-gray);
-            color: white;
-        }
-        
-        /* === قسم المواسم === */
-        .seasons {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .season-card {
-            background: linear-gradient(to bottom, var(--ash-gray), var(--dark-bg));
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .season-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .season-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        
-        .season-info {
-            padding: 20px;
-        }
-        
-        .season-info h3 {
-            color: var(--survivor-yellow);
-            margin-bottom: 10px;
-        }
-        
-        .episodes {
-            color: var(--survivor-yellow);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        /* === قسم الصور المعرض === */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 200px;
-            cursor: pointer;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+:root {
+    --dark-bg: #121212;
+    --blood-red: #8B0000;
+    --zombie-green: #4a5d23;
+    --ash-gray: #343434;
+    --survivor-yellow: #f0ad4e;
+    --dirty-white: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--dirty-white);
+    line-height: 1.6;
+    background-image: url('/api/placeholder/1200/700');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--survivor-yellow);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--blood-red);
+}
+
+/* === رأس الصفحة === */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    border-bottom: 3px solid var(--blood-red);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dirty-white);
+    text-shadow: 0 0 10px var(--blood-red);
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    color: var(--blood-red);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: var(--dirty-white);
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--blood-red);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dirty-white);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* === الجزء الرئيسي === */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, var(--dark-bg), transparent);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px black;
+    color: var(--dirty-white);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    text-shadow: 0 0 10px black;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--blood-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-btn:hover {
+    background-color: var(--zombie-green);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* === أقسام المحتوى === */
+section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--ash-gray);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    position: relative;
+    color: var(--survivor-yellow);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--blood-red);
+    margin: 10px auto;
+}
+
+/* === قسم الشخصيات === */
+.characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.character-card {
+    background-color: var(--ash-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.character-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.character-info {
+    padding: 20px;
+}
+
+.character-info h3 {
+    margin-bottom: 10px;
+    color: var(--survivor-yellow);
+}
+
+.character-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.alive {
+    background-color: var(--zombie-green);
+    color: white;
+}
+
+.deceased {
+    background-color: var(--blood-red);
+    color: white;
+}
+
+.unknown {
+    background-color: var(--ash-gray);
+    color: white;
+}
+
+/* === قسم المواسم === */
+.seasons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.season-card {
+    background: linear-gradient(to bottom, var(--ash-gray), var(--dark-bg));
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.season-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.season-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.season-info {
+    padding: 20px;
+}
+
+.season-info h3 {
+    color: var(--survivor-yellow);
+    margin-bottom: 10px;
+}
+
+.episodes {
+    color: var(--survivor-yellow);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* === قسم الصور المعرض === */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* === نافذة المعرض المنبثقة === */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* === قسم التذييل === */
+footer {
+    background-color: black;
+    padding: 50px 0 20px;
+    color: var(--dirty-white);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: var(--survivor-yellow);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--blood-red);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-left: 10px;
+    color: var(--survivor-yellow);
+}
+
+.social-links {
+    display: flex;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--ash-gray);
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--blood-red);
+    transform: translateY(-5px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--ash-gray);
+}
+
+/* === للشاشات الصغيرة === */
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        height: 100vh;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 300px;
+        transition: right 0.5s ease;
+        z-index: 1000;
+        padding: 50px 0;
+    }
+    
+    .nav-links li {
+        opacity: 0;
+        margin: 15px 0;
+    }
+    
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+    
+    .burger {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .nav-active {
+        right: 0;
+    }
+    
+    @keyframes navLinkFade {
+        from {
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transform: translateX(50px);
         }
-        
-        .gallery-item:hover::after {
+        to {
             opacity: 1;
+            transform: translateX(0px);
         }
-        
-        /* === نافذة المعرض المنبثقة === */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .modal.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 1;
-        }
-        
-        .modal-content {
-            max-width: 80%;
-            max-height: 80%;
-            object-fit: contain;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
-        /* === قسم التذييل === */
-        footer {
-            background-color: black;
-            padding: 50px 0 20px;
-            color: var(--dirty-white);
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section h3 {
-            color: var(--survivor-yellow);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--blood-red);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .contact-info p {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .contact-info i {
-            margin-left: 10px;
-            color: var(--survivor-yellow);
-        }
-        
-        .social-links {
-            display: flex;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--ash-gray);
-            border-radius: 50%;
-            margin-left: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--blood-red);
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--ash-gray);
-        }
-        
-        /* === للشاشات الصغيرة === */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                right: 0;
-                height: 92vh;
-                top: 8vh;
-                background-color: rgba(0, 0, 0, 0.95);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
-                width: 50%;
-                transform: translateX(100%);
-                transition: transform 0.5s ease-in;
-                z-index: 100;
-            }
-            
-            .nav-links li {
-                opacity: 0;
-            }
-            
-            .burger {
-                display: block;
-            }
-            
-            .nav-active {
-                transform: translateX(0%);
-            }
-            
-            @keyframes navLinkFade {
-                from {
-                    opacity: 0;
-                    transform: translateX(50px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(0px);
-                }
-            }
-            
-            .toggle .line1 {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-            
-            .toggle .line2 {
-                opacity: 0;
-            }
-            
-            .toggle .line3 {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-        
-        /* === تأثيرات التمرير === */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* === عنصر تحميل الصفحة === */
-        .loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-        
-        .loader {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 5px solid transparent;
-            border-top-color: var(--blood-red);
-            border-bottom-color: var(--blood-red);
-            animation: spin 1.5s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        
-        /* === خاصية البحث === */
-        .search-container {
-            margin: 20px 0;
-            position: relative;
-        }
-        
-        .search-container input {
-            width: 100%;
-            padding: 15px 50px 15px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: var(--ash-gray);
-            color: var(--dirty-white);
-            font-size: 1rem;
-        }
-        
-        .search-container button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--survivor-yellow);
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-        
-        /* === قسم الأخبار === */
-        .news-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .news-card {
-            background-color: var(--ash-gray);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .news-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .news-content {
-            padding: 20px;
-        }
-        
-        .news-date {
-            color: var(--survivor-yellow);
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-        }
-        
-        .news-title {
-            color: var(--dirty-white);
-            margin-bottom: 10px;
-        }
-        
-        .read-more {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--survivor-yellow);
-            font-weight: bold;
-        }
-        
-        .read-more:hover {
-            color: var(--blood-red);
-        }
-        
-        /* === نمط العد التنازلي === */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            margin: 50px 0;
-        }
-        
-        .countdown-item {
-            margin: 0 15px;
-            text-align: center;
-        }
-        
-        .countdown-number {
-            font-size: 2.5rem;
-            padding: 15px;
-            background-color: var(--ash-gray);
-            color: var(--survivor-yellow);
-            border-radius: 5px;
-            min-width: 80px;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .countdown-label {
-            margin-top: 10px;
-            color: var(--dirty-white);
-            font-size: 0.9rem;
-        }
-        
-        /* === قسم الإحصائيات === */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 50px 0;
-        }
-        
-        .stat-item {
-            text-align: center;
-            margin: 20px;
-            min-width: 150px;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: var(--survivor-yellow);
-        }
-        
-        .stat-label {
-            color: var(--dirty-white);
-            font-size: 1.1rem;
-        }
-        
-        /* === ثيم زومبي خاص === */
-        .zombie-cursor {
-            cursor: url('/api/placeholder/32/32'), auto;
-        }
-        
-        .blood-splatter {
-            position: fixed;
-            width: 100px;
-            height: 100px;
-            background: url('/api/placeholder/100/100') no-repeat;
-            background-size: contain;
-            pointer-events: none;
-            z-index: 9000;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .blood-splatter.active {
-            opacity: 0.8;
-        }
-        
-        /* === أنماط خاصة بنمط الليل/النهار === */
-        .theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--blood-red);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 999;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-        
-        .theme-toggle i {
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        /* === عناصر السرفايفل === */
-        .survival-tips {
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 2px solid var(--zombie-green);
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 50px;
-        }
-        
-        .survival-tips h3 {
-            color: var(--survivor-yellow);
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.8rem;
-        }
-        
-        .tips-list {
-            list-style-type: none;
-        }
-        
-        .tips-list li {
-            margin-bottom: 15px;
-            padding-right: 30px;
-            position: relative;
-        }
-        
-        .tips-list li:before {
-            content: '✓';
-            color: var(--survivor-yellow);
-            font-weight: bold;
-            position: absolute;
-            right: 0;
-        }
-        
-        /* === شريط تقدم السرفايفل === */
-        .survival-progress {
-            margin: 40px 0;
-        }
-        
-        .progress-item {
-            margin-bottom: 25px;
-        }
-        
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        
-        .progress-bar {
-            height: 10px;
-            background-color: var(--ash-gray);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background-color: var(--survivor-yellow);
-            border-radius: 5px;
-            width: 0;
-            transition: width 1s ease;
-        }
-        
-        .water { width: 65%; }
-        .food { width: 45%; }
-        .shelter { width: 80%; }
-        .weapons { width: 70%; }
+    }
+    
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+        background-color: var(--survivor-yellow);
+    }
+    
+    .toggle .line2 {
+        opacity: 0;
+    }
+    
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+        background-color: var(--survivor-yellow);
+    }
+    
+    .hero {
+        height: 70vh;
+        padding: 0 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .cta-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+    
+    .characters, .seasons, .gallery, .news-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .character-card, .season-card, .news-card {
+        margin-bottom: 15px;
+    }
+    
+    .character-img {
+        height: 200px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+    }
+    
+    .countdown {
+        flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+        margin: 10px;
+    }
+    
+    .countdown-number {
+        font-size: 1.8rem;
+        min-width: 60px;
+        padding: 10px;
+    }
+    
+    .stat-item {
+        width: 45%;
+        margin: 10px 0;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* تحسينات إضافية للشاشات الصغيرة جداً */
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+    }
+    
+    .cta-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .characters, .seasons, .gallery, .news-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .countdown-item {
+        margin: 5px;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+        min-width: 50px;
+        padding: 8px;
+    }
+    
+    .stat-item {
+        width: 100%;
+    }
+    
+    .search-container input {
+        padding: 12px 40px 12px 15px;
+    }
+}
+
+/* === تأثيرات التمرير === */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === عنصر تحميل الصفحة === */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top-color: var(--blood-red);
+    border-bottom-color: var(--blood-red);
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* === خاصية البحث === */
+.search-container {
+    margin: 20px 0;
+    position: relative;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--ash-gray);
+    color: var(--dirty-white);
+    font-size: 1rem;
+}
+
+.search-container button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--survivor-yellow);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* === قسم الأخبار === */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background-color: var(--ash-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+}
+
+.news-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-date {
+    color: var(--survivor-yellow);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.news-title {
+    color: var(--dirty-white);
+    margin-bottom: 10px;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--survivor-yellow);
+    font-weight: bold;
+}
+
+.read-more:hover {
+    color: var(--blood-red);
+}
+
+/* === نمط العد التنازلي === */
+.countdown {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.countdown-item {
+    margin: 0 15px;
+    text-align: center;
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    padding: 15px;
+    background-color: var(--ash-gray);
+    color: var(--survivor-yellow);
+    border-radius: 5px;
+    min-width: 80px;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-label {
+    margin-top: 10px;
+    color: var(--dirty-white);
+    font-size: 0.9rem;
+}
+
+/* === قسم الإحصائيات === */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}
+
+.stat-item {
+    text-align: center;
+    margin: 20px;
+    min-width: 150px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--survivor-yellow);
+}
+
+.stat-label {
+    color: var(--dirty-white);
+    font-size: 1.1rem;
+}
+
+/* === ثيم زومبي خاص === */
+.zombie-cursor {
+    cursor: url('/api/placeholder/32/32'), auto;
+}
+
+.blood-splatter {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: url('/api/placeholder/100/100') no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 9000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.blood-splatter.active {
+    opacity: 0.8;
+}
+
+/* === أنماط خاصة بنمط الليل/النهار === */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--blood-red);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* === عناصر السرفايفل === */
+.survival-tips {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--zombie-green);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.survival-tips h3 {
+    color: var(--survivor-yellow);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.tips-list {
+    list-style-type: none;
+}
+
+.tips-list li {
+    margin-bottom: 15px;
+    padding-right: 30px;
+    position: relative;
+}
+
+.tips-list li:before {
+    content: '✓';
+    color: var(--survivor-yellow);
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+}
+
+/* === شريط تقدم السرفايفل === */
+.survival-progress {
+    margin: 40px 0;
+}
+
+.progress-item {
+    margin-bottom: 25px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: var(--ash-gray);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--survivor-yellow);
+    border-radius: 5px;
+    width: 0;
+    transition: width 1s ease;
+}
+
+.water { width: 65%; }
+.food { width: 45%; }
+.shelter { width: 80%; }
+.weapons { width: 70%; }
+
+/* === تحسينات إضافية === */
+/* تمكين لمس الشاشة في الهواتف */
+@media (hover: none) {
+    .character-card:hover,
+    .season-card:hover,
+    .news-card:hover {
+        transform: none;
+    }
+    
+    .nav-links a:active::after {
+        width: 100%;
+    }
+}
+
+/* إضافة وضع أمان التنقل */
+.scroll-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--zombie-green);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.scroll-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top i {
+    color: white;
+}
