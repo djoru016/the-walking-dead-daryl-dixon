@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Walking Dead - World of the Walking Dead</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Loading Element -->
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Header and Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">THE <span>WALKING</span> DEAD</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#characters">Characters</a></li>
+                    <li><a href="#seasons">Seasons</a></li>
+                    <li><a href="#survival">Survival</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#news">News</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>THE WALKING DEAD</h1>
+        <p>Immerse yourself in a post-apocalyptic world where survivors struggle to stay alive against the threat of the walking dead</p>
+        <a href="#characters" class="cta-btn">Explore the World</a>
+    </section>
+    
+    <!-- Characters Section -->
+    <section id="characters" class="container fade-in">
+        <h2 class="section-title">Characters</h2>
+        
+        <div class="search-container">
+            <input type="text" id="characterSearch" placeholder="Search for a character...">
+            <button id="searchBtn">🔍</button>
+        </div>
+        
+        <div class="characters">
+            <div class="character-card">
+                <img src="./photo/rick-the-walking-dead--.png" alt="Rick Grimes" class="character-img">
+                <div class="character-info">
+                    <h3>Rick Grimes</h3>
+                    <span class="character-status unknown">Unknown</span>
+                    <p>Former police officer and leader of the main survivor group. Known for his courage and determination to protect his family and friends.</p>
+                </div>
+            </div>
+            
+            <div class="character-card">
+                <img src="./photo/daryl-with-crossbow--.png" alt="Daryl Dixon" class="character-img">
+                <div class="character-info">
+                    <h3>Daryl Dixon</h3>
+                    <span class="character-status alive">Alive</span>
+                    <p>Skilled hunter and tracker. An isolated character who evolved to become one of the most important and loyal members of the group.</p>
+                </div>
+            </div>
+            
+            <div class="character-card">
+                <img src="./photo/michonne-with-sword.png" alt="Michonne" class="character-img">
+                <div class="character-info">
+                    <h3>Michonne</h3>
+                    <span class="character-status alive">Alive</span>
+                    <p>Skilled sword fighter and former lawyer. A strong and wise character who became one of the group's most important leaders.</p>
+                </div>
+            </div>
+            
+            <div class="character-card">
+                <img src="./photo/negan.png" alt="Negan" class="character-img">
+                <div class="character-info">
+                    <h3>Negan</h3>
+                    <span class="character-status alive">Alive</span>
+                    <p>Former leader of "The Saviors." A charismatic and complex character who transformed from enemy to anticipated ally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="container fade-in">
+        <h2 class="section-title">Gallery</h2>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الاول.jpg" alt="The Walking Dead Scene 1">
+            </div>
+            <div class="gallery-item">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الثاني.jpg" alt="The Walking Dead Scene 2">
+            </div>
+            <div class="gallery-item">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الثالث.jpg" alt="The Walking Dead Scene 3">
+            </div>
+            <div class="gallery-item">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الرابع.jpg" alt="The Walking Dead Scene 4">
+            </div>
+            <div class="gallery-item">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الخامس.jpg" alt="The Walking Dead Scene 5">
+            </div>
+            <div class="gallery-item">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-السادس.jpg" alt="The Walking Dead Scene 6">
+            </div>
+            <div class="gallery-item">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-السابع.jpg" alt="The Walking Dead Scene 7">
+            </div>
+            <div class="gallery-item">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الثامن.jpg" alt="The Walking Dead Scene 8">
+            </div>
+        </div>
+        
+        <!-- Image Popup Modal -->
+        <div class="modal">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content">
+        </div>
+    </section>
+    
+    <!-- News Section -->
+    <section id="news" class="container fade-in">
+        <h2 class="section-title">Latest News</h2>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+        
+        <div class="news-container">
+            <div class="news-card">
+                <img src="./photo/cover-of-the-series-the-walking-dead-daryl-dixon.png" alt="News 1" class="news-img">
+                <div class="news-content">
+                    <div class="news-date">May 10, 2025</div>
+                    <h3 class="news-title">Announcement of New Series from The Walking Dead Universe</h3>
+                    <p>A new spin-off series from The Walking Dead universe has been announced, featuring new characters in a completely different setting.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <img src="./photo/series-star-reveals-behind-the-scenes-details-of-t.png" alt="News 2" class="news-img">
+                <div class="news-content">
+                    <div class="news-date">May 5, 2025</div>
+                    <h3 class="news-title">Series Star Reveals Behind-the-Scenes of Final Season</h3>
+                    <p>In an exclusive interview, one of the series stars revealed behind-the-scenes details and special memories from filming the show's final season.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <img src="./photo/the-walking-dead-daryl-dixon-movie-coming-soon.png" alt="News 3" class="news-img">
+                <div class="news-content">
+                    <div class="news-date">May 1, 2025</div>
+                    <h3 class="news-title">The Walking Dead daryl dixon  Movie Coming Soon</h3>
+                    <p>AMC network confirmed that The Walking Dead movie is still in development with filming expected to begin soon.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <i class="fas fa-adjust"></i>
+    </div>
+    
+    <!-- Seasons Section -->
+    <section id="seasons" class="container fade-in">
+        <h2 class="section-title">Seasons</h2>
+        
+        <div class="seasons">
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الاول.jpg" alt="Season 1">
+                <div class="season-info">
+                    <h3>Season 1</h3>
+                    <div class="episodes">6 Episodes</div>
+                    <p>The story begins with Rick Grimes waking from a coma to find himself in a world overrun by the walking dead.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-6/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الثاني.jpg" alt="Season 2">
+                <div class="season-info">
+                    <h3>Season 2</h3>
+                    <div class="episodes">13 Episodes</div>
+                    <p>The group moves to Hershel Greene's farm and discovers new secrets about the global pandemic.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%89-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-13/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الثالث.jpg" alt="Season 3">
+                <div class="season-info">
+                    <h3>Season 3</h3>
+                    <div class="episodes">16 Episodes</div>
+                    <p>The group settles in an abandoned prison and faces a new threat from the "Woodbury" community led by the Governor.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-16/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الرابع.jpg" alt="Season 4">
+                <div class="season-info">
+                    <h3>Season 4</h3>
+                    <div class="episodes">16 Episodes</div>
+                    <p>A deadly outbreak spreads through the prison followed by the Governor's attack that leads to the group scattering.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-16/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الخامس.jpg" alt="Season 5">
+                <div class="season-info">
+                    <h3>Season 5</h3>
+                    <div class="episodes">16 Episodes</div>
+                    <p>The group escapes Terminus and begins their journey to Alexandria, a new safe community.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-16/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-السادس.jpg" alt="Season 6">
+                <div class="season-info">
+                    <h3>Season 6</h3>
+                    <div class="episodes">16 Episodes</div>
+                    <p>New threats to Alexandria and the appearance of "The Saviors" at the end of the season.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b3%d8%a7%d8%af%d8%b3-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-16/" class="read-more"target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-السابع.jpg" alt="Season 7">
+                <div class="season-info">
+                    <h3>Season 7</h3>
+                    <div class="episodes">16 Episodes</div>
+                    <p>Negan and The Saviors' rule and the struggle to free the communities from their control.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b3%d8%a7%d8%a8%d8%b9-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-16/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الثامن.jpg" alt="Season 8">
+                <div class="season-info">
+                    <h3>Season 8</h3>
+                    <div class="episodes">16 Episodes</div>
+                    <p>All-out war against Negan and The Saviors and the alliance of communities.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%85%d9%86-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-16/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-التاسع.jpg" alt="Season 9">
+                <div class="season-info">
+                    <h3>Season 9</h3>
+                    <div class="episodes">16 Episodes</div>
+                    <p>A time jump and building a new community followed by a new threat: The Whisperers.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%aa%d8%a7%d8%b3%d8%b9-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-16/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-العاشر.jpg" alt="Season 10">
+                <div class="season-info">
+                    <h3>Season 10</h3>
+                    <div class="episodes">22 Episodes</div>
+                    <p>War against The Whisperers and dealing with its consequences.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-10-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-22-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+            
+            <div class="season-card">
+                <img src="./photo/مسلسل-The-Walking-Dead-الموسم-الحادي-عشر.jpg" alt="Season 11">
+                <div class="season-info">
+                    <h3>Season 11</h3>
+                    <div class="episodes">24 Episodes</div>
+                    <p>The final season - facing The Commonwealth and concluding the series' story.</p>
+                    <a href="https://egydead.fyi/episode/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-walking-dead-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-11-%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-24/" class="read-more" target="_blank">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Survival Tips Section -->
+    <section id="survival" class="container fade-in">
+        <h2 class="section-title">Survival Tips</h2>
+        
+        <div class="survival-tips">
+            <h3>How to Survive in the World of the Walking Dead</h3>
+            
+            <ul class="tips-list">
+                <li>Stay calm and avoid noise that might attract zombies.</li>
+                <li>Keep moving and don't stay in one place for too long.</li>
+                <li>Ensure multiple exits in any place you hide.</li>
+                <li>Gather essential supplies like food, water, and medicine.</li>
+                <li>Learn basic skills like first aid and hunting.</li>
+                <li>Be as cautious of other humans as you are of zombies.</li>
+                <li>Use melee weapons instead of firearms when possible to avoid drawing attention.</li>
+                <li>Practice close combat and how to target a zombie's brain.</li>
+            </ul>
+        </div>
+        
+        <div class="survival-progress">
+            <h3>Survival Progress Indicator</h3>
+            
+            <div class="progress-item">
+                <div class="progress-label">
+                    <span>Water</span>
+                    <span>65%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress water"></div>
+                </div>
+            </div>
+            
+            <div class="progress-item">
+                <div class="progress-label">
+                    <span>Food</span>
+                    <span>45%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress food"></div>
+                </div>
+            </div>
+            
+            <div class="progress-item">
+                <div class="progress-label">
+                    <span>Shelter</span>
+                    <span>80%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress shelter"></div>
+                </div>
+            </div>
+            
+            <div class="progress-item">
+                <div class="progress-label">
+                    <span>Weapons</span>
+                    <span>70%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress weapons"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="killCounter">0</div>
+                <div class="stat-label">Zombies Killed</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number" id="survivorCounter">0</div>
+                <div class="stat-label">Survival Days</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number" id="resourceCounter">0</div>
+                <div class="stat-label">Resources Collected</div>
+            </div>
+        </div>
+    </section>
+     <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>A website dedicated to fans of The Walking Dead where you can follow the latest news and information about the series and its characters.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#characters">Characters</a></li>
+                        <li><a href="#seasons">Seasons</a></li>
+                        <li><a href="#survival">Survival</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#news">News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> walkingdead@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +1-4562-7890-5631</p>
+                        <p><i class="fas fa-map-marker-alt"></i> United States</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/TheWalkingDeadAMC/?locale=ar_AR"><i class="fab fa-facebook-f"></i>FB</a>
+                        <a href="https://x.com/WalkingDead_AMC?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i>TW</a>
+                        <a href="https://www.instagram.com/amcthewalkingdead/?hl=ar"><i class="fab fa-instagram">IG</i></a>
+                        <a href="https://www.youtube.com/thewalkingdead"><i class="fab fa-youtube">YU</i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Walking Dead Website. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./main.js"></script>
+</body>
+</html>
